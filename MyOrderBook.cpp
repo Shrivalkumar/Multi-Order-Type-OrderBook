@@ -308,7 +308,7 @@ public:
 
         auto createLevelInfos = [](Price price, const OrderPointers& orders){
             return LevelInfo{price , std::accumulate(orders.begin() , orders.end(), (Quantity)0,
-                [](std::size_t runningSum , const OrderPointer& order){
+                [](Quantity runningSum , const OrderPointer& order){
                     return runningSum+order->GetRemainingQuantity();
                 })};
         };
